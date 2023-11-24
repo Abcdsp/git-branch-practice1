@@ -1,0 +1,292 @@
+dhpcsa@DHPCSA2 MINGW64 ~
+$ cd e:
+
+dhpcsa@DHPCSA2 MINGW64 /e
+$ mkdir git-demo1
+
+dhpcsa@DHPCSA2 MINGW64 /e
+$ cd git-demo1/
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1
+$ git init
+Initialized empty Git repository in E:/git-demo1/.git/
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls -all
+total 12
+drwxr-xr-x 1 dhpcsa 1049089 0 Nov 24 08:57 ./
+drwxr-xr-x 1 dhpcsa 1049089 0 Nov 24 08:56 ../
+drwxr-xr-x 1 dhpcsa 1049089 0 Nov 24 08:57 .git/
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ vi file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ vi passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1
+        passwords
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ vi .gitignore
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        file1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git add -A
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'file1', LF will be replaced by CRLF the next time Git touches it
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git commit -m "file created"
+[master (root-commit) f8184ea] file created
+ 2 files changed, 3 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ vi passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ vi file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git branch
+
+* master
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git branch f1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git branch
+  f1
+* master
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git branch f2
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ cat file1
+abcdefghi
+aghykl
+
+cvbnm
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ cat passwords
+123456
+
+456789
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git checkout f1
+Switched to branch 'f1'
+M       file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git branch
+* f1
+  f2
+  master
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ vi f1-data1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git checkout master
+Switched to branch 'master'
+M       file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+f1-data1  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git add -A
+warning: in the working copy of 'file1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'f1-data1', LF will be replaced by CRLF the next time Git touches it
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   f1-data1
+        modified:   file1
+
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git checkout f1
+Switched to branch 'f1'
+A       f1-data1
+M       file1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ ls
+f1-data1  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git add -A
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git commit -m "f1-data1 created"
+[f1 bd695be] f1-data1 created
+ 2 files changed, 3 insertions(+)
+ create mode 100644 f1-data1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git status
+On branch f1
+nothing to commit, working tree clean
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git log
+
+commit bd695be202f584f3f19c4101dfbe2d160c918331 (HEAD -> f1)
+Author: Anuradha <anuradha04chavan@gmail.com>
+Date:   Fri Nov 24 09:09:12 2023 +0530
+
+    f1-data1 created
+
+commit f8184eaaea2e7854712246711c19e5d74dc9c98e (master, f2)
+Author: Anuradha <anuradha04chavan@gmail.com>
+Date:   Fri Nov 24 08:59:58 2023 +0530
+
+    file created
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ ls
+f1-data1  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f1)
+$ git checkout master
+Switched to branch 'master'
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git merge f1
+Updating f8184ea..bd695be
+Fast-forward
+ f1-data1 | 1 +
+ file1    | 2 ++
+ 2 files changed, 3 insertions(+)
+ create mode 100644 f1-data1
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+f1-data1  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git log
+
+commit bd695be202f584f3f19c4101dfbe2d160c918331 (HEAD -> master, f1)
+Author: Anuradha <anuradha04chavan@gmail.com>
+Date:   Fri Nov 24 09:09:12 2023 +0530
+
+    f1-data1 created
+
+commit f8184eaaea2e7854712246711c19e5d74dc9c98e (f2)
+Author: Anuradha <anuradha04chavan@gmail.com>
+Date:   Fri Nov 24 08:59:58 2023 +0530
+
+    file created
+ls
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git checkout f2
+Switched to branch 'f2'
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ vi fi-data2
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ ls
+fi-data2  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ git status
+On branch f2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        fi-data2
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ git add -A
+warning: in the working copy of 'fi-data2', LF will be replaced by CRLF the next time Git touches it
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ ls
+fi-data2  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (f2)
+$ git checkout master
+Switched to branch 'master'
+A       fi-data2
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+f1-data1  fi-data2  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ git merge f2
+Already up to date.
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$ ls
+f1-data1  fi-data2  file1  passwords
+
+dhpcsa@DHPCSA2 MINGW64 /e/git-demo1 (master)
+$
